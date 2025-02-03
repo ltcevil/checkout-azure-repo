@@ -17,7 +17,7 @@ jobs:
           git config --global user.name "ltcevil"
           git config --global user.email "evil@evils.live"
       - name: Checkout Azure Repository
-        uses: ltcevil/checkout-azure-repo@main
+        uses: ltcevil/checkout-azure-repo
         with:
           token: ${{ secrets.AZURE_TOKEN }}  # Az Azure token tárolva a GitHub Secrets-ben
           username: ${{ secrets.AZURE_USERNAME }}  # Az Azure felhasználónév tárolva a GitHub Secrets-ben
