@@ -15,4 +15,4 @@ jobs:
         with:
           token: ${{ secrets.AZURE_TOKEN }}  # Az Azure token tárolva a GitHub Secrets-ben
           username: ${{ secrets.AZURE_USERNAME }}  # Az Azure felhasználónév tárolva a GitHub Secrets-ben
-          repo_url: ${{ variables.AZURE_USERNAME }}  # Az Azure repo URL-je
+          repo_url: https://horvathtamas0440@dev.azure.com/horvathtamas0440/jarina/_git/jarina  # Az Azure repo URL-je
