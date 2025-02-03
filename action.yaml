@@ -29,7 +29,7 @@ runs:
       shell: bash
       run: |
         git config --global user.name "${{ inputs.username }}"
-        git config --global user.email "azure@azure.com"
+        git config --global user.email "horvathtamas@gyumolcskiraly.com"
 
     - name: Clone repository
       shell: bash
