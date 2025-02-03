@@ -4,23 +4,28 @@ name: Checkout Azure Repo
 on:
   push:
     branches:
-      - main  # Vagy más ág, amelyen szeretnéd futtatni
+      - main
 
 jobs:
-  checkout:
+  checkout-repo:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Set git config
-        shell: bash
-        run: |
-          git config --global user.name "ltcevil"
-          git config --global user.email "evil@evils.live"
-      - name: Checkout Azure Repository
-        uses: ltcevil/checkout-azure-repo
-        with:
-          token: ${{ secrets.AZURE_TOKEN }}  # Az Azure token tárolva a GitHub Secrets-ben
-          username: ${{ secrets.AZURE_USERNAME }}  # Az Azure felhasználónév tárolva a GitHub Secrets-ben
-          repo_url: ${{ secrets.REPO_URL }}
-
-
+    - name: Checkout the repository
+      uses: actions/checkout@v2
+      with:
+        submodules: false
+    
+    - name: Set Git config
+      run: |
+        git config --global user.name "Tibi"
+        git config --global user.email "evil@evils.live"
+    
+    - name: Clone Azure repo
+      run: |
+        git clone https://<username>:<personal_access_token>@<azure_repo_url> <directory_name>
+      env:
+        username: ${{ secrets.AZURE_USERNAME }}
+        personal_access_token: ${{ secrets.AZURE_TOKEN }}
+        azure_repo_url: ${{ secrets.REPO_URL }}
+        directory_name: horvathtamas0440
