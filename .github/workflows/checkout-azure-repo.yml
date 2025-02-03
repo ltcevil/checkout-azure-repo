@@ -1,0 +1,18 @@
+name: Checkout Azure Repo
+
+on:
+  push:
+    branches:
+      - main  # Vagy más ág, amelyen szeretnéd futtatni
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Azure Repository
+        uses: bancolombia/checkout-azure-repo@v1
+        with:
+          token: ${{ secrets.AZURE_TOKEN }}  # Az Azure token tárolva a GitHub Secrets-ben
+          username: ${{ secrets.AZURE_USERNAME }}  # Az Azure felhasználónév tárolva a GitHub Secrets-ben
+          repo_url: azure.com/owner/repo  # Az Azure repo URL-je
