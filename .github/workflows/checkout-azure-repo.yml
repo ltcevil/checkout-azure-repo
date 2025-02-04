@@ -20,12 +20,16 @@ jobs:
       run: |
         git config --global user.name "Tibi"
         git config --global user.email "evil@evils.live"
-    
-    - name: Clone Azure repo
-      run: |
-        git clone https://<username>:<personal_access_token>@<azure_repo_url> <directory_name>
-      env:
+
+    - name: Checkout Azure Repository
+      uses: bancolombia/checkout-azure-repo@v1
+      with:
+        token: ${{ secrets.AZURE_TOKEN }}
         username: ${{ secrets.AZURE_USERNAME }}
-        personal_access_token: ${{ secrets.AZURE_TOKEN }}
-        azure_repo_url: ${{ secrets.REPO_URL }}
-        directory_name: horvathtamas0440
+        repo_url: ${{ secrets.AZURE_REPO_URL }}
+  
+    - name: Clone repository
+      run: |
+        git clone https://${{ secrets.AZURE_USERNAME }}:${{ secrets.AZURE_TOKEN }}@${{ secrets.AZURE_REPO_URL }} horvathtamas0440
+      
+
